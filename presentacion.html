@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Desarrollo - Apps Viajes Compartidos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .timeline-info {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .overview {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .overview h2 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .tech-item {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(231, 76, 60, 0.3);
+        }
+
+        .tech-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .apps-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .app-card h3 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .app-pasajeros h3 {
+            color: #27ae60;
+        }
+
+        .app-conductores h3 {
+            color: #f39c12;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .timeline {
+            margin: 40px 0;
+        }
+
+        .timeline h2 {
+            color: white;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .sprint {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sprint::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+        }
+
+        .sprint-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .sprint-number {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .sprint-weeks {
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .sprint-title {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .deliverable {
+            background: linear-gradient(45deg, #27ae60, #229954);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+
+        .deliverable::before {
+            content: "🎯 Entregable: ";
+            font-weight: bold;
+        }
+
+        .sprint-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .app-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #3498db;
+        }
+
+        .app-section h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .app-section ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .app-section li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .app-section li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .technologies {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .technologies h5 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: #f39c12;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .milestone {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .milestone h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            background: #ecf0f1;
+            height: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #27ae60, #229954);
+            transition: width 2s ease;
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .success-criteria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .criteria-item {
+            background: linear-gradient(45deg, #27ae60, #229954);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header .subtitle {
+                font-size: 1rem;
+            }
+
+            .apps-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .sprint-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sprint-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .tech-stack {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .highlight {
+            animation: highlight 3s ease-in-out infinite;
+        }
+
+        @keyframes highlight {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header fade-in">
+            <h1>🚗 Plan de Desarrollo</h1>
+            <div class="subtitle">Apps de Viajes Compartidos Cali-Bogotá</div>
+            <div class="timeline-info">6 meses | 13 sprints de 2 semanas</div>
+        </div>
+
+        <!-- Overview -->
+        <div class="overview fade-in">
+            <h2>🎯 Visión del Proyecto</h2>
+            <p style="font-size: 1.2rem; text-align: center; margin-bottom: 20px; color: #555;">
+                Crear un ecosistema completo de viajes compartidos para trayectos largos, 
+                conectando conductores y pasajeros de manera segura y eficiente.
+            </p>
+            
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <h3>📱 Frontend</h3>
+                    <p>Flutter + Dart<br>Material Design 3</p>
+                </div>
+                <div class="tech-item">
+                    <h3>☁️ Backend</h3>
+                    <p>Firebase Suite<br>Cloud Functions</p>
+                </div>
+                <div class="tech-item">
+                    <h3>🗺️ Mapas</h3>
+                    <p>OpenStreetMap<br>Leaflet Flutter</p>
+                </div>
+                <div class="tech-item">
+                    <h3>💳 Pagos</h3>
+                    <p>PayU Colombia<br>Transacciones seguras</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Apps Overview -->
+        <div class="apps-overview fade-in">
+            <div class="app-card app-pasajeros">
+                <h3>👥 App de Pasajeros</h3>
+                <ul class="features-list">
+                    <li>Buscar viajes con filtros avanzados</li>
+                    <li>Reservar cupos de manera segura</li>
+                    <li>Sistema de pagos integrado</li>
+                    <li>Chat con conductores</li>
+                    <li>Calificaciones y reseñas</li>
+                    <li>Historial de viajes</li>
+                    <li>Soporte técnico 24/7</li>
+                    <li>Notificaciones en tiempo real</li>
+                </ul>
+            </div>
+            
+            <div class="app-card app-conductores">
+                <h3>🚗 App de Conductores</h3>
+                <ul class="features-list">
+                    <li>Publicar viajes fácilmente</li>
+                    <li>Gestionar reservas</li>
+                    <li>Billetera y ganancias</li>
+                    <li>Verificación de documentos</li>
+                    <li>Sistema de calificaciones</li>
+                    <li>Análisis de ingresos</li>
+                    <li>Soporte prioritario</li>
+                    <li>Retiros automáticos</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+            <h2>📅 Cronograma de Desarrollo</h2>
+
+            <!-- Sprint 1 -->
+            <div class="sprint fade-in">
+                <div class="sprint-header">
+                    <div class="sprint-number">Sprint 1</div>
+                    <div class="sprint-weeks">Semanas 1-2</div>
+                </div>
+                <div class="sprint-title">🏗️ Fundación del Proyecto</div>
+                <div class="deliverable">Estructura base y autenticación básica funcionando</div>
+                
+                <div class="sprint-content">
+                    <div class="app-section">
+                        <h4>App Pasajeros - Configuración Base</h4>
+                        <ul>
+                            <li>Crear proyecto Flutter</li>
+                            <li>Configurar Firebase (Auth, Firestore)</li>
+                            <li>Estructura de carpetas por features</li>
+                            <li>Setup Git/GitHub</li>
+                        </ul>
+                    </div>
+                    <div class="app-section">
+                        <h4>Sistema de Autenticación</h4>
+                        <ul>
+                            <li>Pantalla de bienvenida</li>
+                            <li>Login con email/password</li>
+                            <li>Registro básico</li>
+                            <li>Logout y navegación</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="technologies">
+                    <h5>🛠️ Tecnologías Clave:</h5>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter SDK</span>
+                        <span class="tech-tag">Firebase Auth</span>
+                        <span class="tech-tag">GoRouter</span>
+                        <span class="tech-tag">Material Design 3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sprint 2 -->
+            <div class="sprint fade-in">
+                <div class="sprint-header">
+                    <div class="sprint-number">Sprint 2</div>
+                    <div class="sprint-weeks">Semanas 3-4</div>
+                </div>
+                <div class="sprint-title">👤 Perfiles y Base de Datos</div>
+                <div class="deliverable">Sistema completo de usuarios con fotos y validación</div>
+                
+                <div class="sprint-content">
+                    <div class="app-section">
+                        <h4>Perfiles Completos</h4>
+                        <ul>
+                            <li>Registro con foto de perfil</li>
+                            <li>Validación de datos completa</li>
+                            <li>Subida de imágenes a Firebase</li>
+                            <li>Edición de perfil</li>
+                        </ul>
+                    </div>
+                    <div class="app-section">
+                        <h4>Estructura de Base de Datos</h4>
+                        <ul>
+                            <li>Diseño de colecciones Firestore</li>
+                            <li>Reglas de seguridad</li>
+                            <li>Indices para consultas</li>
+                            <li>Validación server-side</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="technologies">
+                    <h5>🛠️ Tecnologías Clave:</h5>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Firebase Storage</span>
+                        <span class="tech-tag">Image Picker</span>
+                        <span class="tech-tag">Form Validation</span>
+                        <span class="tech-tag">Firestore</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sprint 3 -->
+            <div class="sprint fade-in">
+                <div class="sprint-header">
+                    <div class="sprint-number">Sprint 3</div>
+                    <div class="sprint-weeks">Semanas 5-6</div>
+                </div>
+                <div class="sprint-title">🗺️ Mapas y Ubicación</div>
+                <div class="deliverable">Integración completa de mapas con selección de rutas</div>
+                
+                <div class="sprint-content">
+                    <div class="app-section">
+                        <h4>Sistema de Mapas</h4>
+                        <ul>
+                            <li>Integrar OpenStreetMap</li>
+                            <li>Seleccionar origen y destino</li>
+                            <li>Mostrar rutas en mapa</li>
+                            <li>Permisos de ubicación</li>
+                        </ul>
+                    </div>
+                    <div class="app-section">
+                        <h4>Geocoding y Navegación</h4>
+                        <ul>
+                            <li>Convertir direcciones a coordenadas</li>
+                            <li>Búsqueda de lugares</li>
+                            <li>Cálculo de distancias</li>
+                            <li>Estimación de tiempo</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="technologies">
+                    <h5>🛠️ Tecnologías Clave:</h5>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter Map</span>
+                        <span class="tech-tag">OpenStreetMap</span>
+                        <span class="tech-tag">Geolocator</span>
+                        <span class="tech-tag">Geocoding</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sprint 4 -->
+            <div class="sprint fade-in">
+                <div class="sprint-header">
+                    <div class="sprint-number">Sprint 4</div>
+                    <div class="sprint-weeks">Semanas 7-8</div>
+                </div>
+                <div class="sprint-title">🚗 App Conductores - Base</div>
+                <div class="deliverable">App de conductores con autenticación y verificación</div>
+                
+                <div class="sprint-content">
+                    <div class="app-section">
+                        <h4>Configuración App Conductores</h4>
+                        <ul>
+                            <li>Proyecto Flutter separado</li>
+                            <li>Firebase compartido</li>
+                            <li>Autenticación para conductores</li>
+                            <li>UI específica para conductores</li>
+                        </ul>
+                    </div>
+                    <div class="app-section">
+                        <h4>Verificación de Conductores</h4>
+                        <ul>
+                            <li>Subida de documentos (licencia, SOAT)</li>
+                            <li>Información del vehículo</li>
+                            <li>Proceso de aprobación</li>
+                            <li>Estados de verificación</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="technologies">
+                    <h5>🛠️ Tecnologías Clave:</h5>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Shared Firebase</span>
+                        <span class="tech-tag">Document Scanner</span>
+                        <span class="tech-tag">Role-based Auth</span>
+                        <span class="tech-tag">Firebase Functions</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Milestone 1 -->
+            <div class="milestone highlight">
+                <h3>🎯 Milestone 1 - Mes 2</h3>
+                <p>Apps base funcionando con autenticación, perfiles y mapas integrados</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 30%"></div>
+                </div>
+            </div>
+
+            <!-- Sprint 5 -->
+            <div class="sprint fade-in">
+                <div class="sprint-header">
+                    <div class="sprint-number">Sprint 5</div>
+                    <div class="sprint-weeks">Semanas 9-10</div>
+                </div>
+                <div class="sprint-title">📝 Publicación de Viajes</div>
+                <div class="deliverable">Conductores pueden publicar viajes y pasajeros verlos</div>
+                
+                <div class="sprint-content">
+                    <div class="app-section">
+                        <h4>App Conductores - Crear Viajes</h4>
+                        <ul>
+                            <li>Formulario completo de viaje</li>
+                            <li>Selección de ruta en mapa</li>
+                            <li>Configurar precios y cupos</li>
+                            <li>Paradas intermedias</li>
+                            <li>Política de equipaje</li>
+                        </ul>
+                    </div>
+                    <div class="app-section">
+                        <h4>App Pasajeros - Ver Viajes</h4>
+                        <ul>
+                            <li>Página principal con viajes</li>
+                            <li>Tarjetas atractivas de viajes</li>
+                            <li>Información del conductor</li>
+                            <li>Estados de carga</li>
+                            <li>Actualización en tiempo real</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sprint 6 -->
+            <div class="sprint fade-in">
+                <div class="sprint-header">
+                    <div class="sprint-number">Sprint 6</div>
+                    <div class="sprint-weeks">Semanas 11-12</div>
+                </div>
+                <div class="sprint-title">🔍 Búsqueda y Filtros</div>
+                <div class="deliverable">Sistema completo de búsqueda con filtros avanzados</div>
+                
+                <div class="sprint-content">
+                    <div class="app-section">
+                        <h4>Búsqueda Avanzada</h4>
+                        <ul>
+                            <li>Filtros por ubicación y fecha</li>
+                            <li>Filtros por precio y personas</li>
+                            <li>Filtros de equipaje</li>
+                            <li>Búsqueda en tiempo real</li>
+                        </ul>
+                    </div>
+                    <div class="app-section">
+                        <h4>Resultados y Ordenamiento</h4>
+                        <ul>
+                            <li>Ordenar por precio, hora, rating</li>
+                            <li>Vista de lista y mapa</li>
+                            <li>Guardar búsquedas favoritas</li>
+                            <li>Sugerencias inteligentes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sprint 7 -->
+            <div class="sprint fade-in">
+                <div class="sprint-header">
+                    <div class="sprint-number">Sprint 7</div>
+                    <div class="sprint-weeks">Semanas 13-14</div>
+                </div>
+                <div class="sprint-title">🎫 Sistema de Reservas</div>
+                <div class="deliverable">Reservas funcionales completas entre apps</div>
+                
+                <div class="sprint-content">
+                    <div class="app-section">
+                        <h4>App Pasajeros - Reservar</h4>
+                        <ul>
+                            <li>Vista detallada del viaje</li>
+                            <li>Formulario de reserva</li>
+                            <li>Selección de equipaje</li>
+                            <li>Confirmación de precio</li>
+                        </ul>
+                    </div>
+                    <div class="app-section">
+                        <h4>App Conductores - Gestionar</h4>
+                        <ul>
+                            <li>Recibir solicitudes</li>
+                            <li>Aceptar/rechazar pasajeros</li>
+                            <li>Ver info del solicitante</li>
+                            <li>Gestionar cupos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sprint 8 -->
+            <div class="sprint fade-in">
+                <div class="sprint-header">
+                    <div class="sprint-number">Sprint 8</div>
+                    <div class="sprint-weeks">Semanas 15-16</div>
+                </div>
+                <div class="sprint-title">💳 Integración de Pagos</div>
+                <div class="deliverable">Sistema completo de pagos con PayU funcionando</div>
+                
+                <div class="sprint-content">
+                    <div class="app-section">
+                        <h4>Sistema de Pagos</h4>
+                        <ul>
+                            <li>Integrar PayU SDK</li>
+                            <li>Procesar pagos seguros</li>
+                            <li>Retención hasta viaje completado</li>
+                            <li>Reembolsos automáticos</li>
+                        </ul>
+                    </div>
+                    <div class="app-section">
+                        <h4>Gestión Financiera</h4>
+                        <ul>
+                            <li>Historial de transacciones</li>
+                            <li>Estados de pago</li>
+                            <li>Verificación server-side</li>
+                            <li>Manejo de errores</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Milestone 2 -->
+            <div class="milestone highlight">
+                <h3>🎯 Milestone 2 - Mes 4</h3>
+                <p>MVP Completo: Viajes, reservas y pagos funcionando perfectamente</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%"></div>
+                </div>
+            </div>
+
+            <!-- Sprints 9-13 Resumidos -->
+            <div class="sprint fade-in">
+                <div class="sprint-header">
+                    <div class="sprint-number">Sprints 9-13</div>
+                    <div class="sprint-weeks">Semanas 17-26</div>
+                </div>
+                <div class="sprint-title">🚀 Funcionalidades Avanzadas y Lanzamiento</div>
+                <div class="deliverable">Apps completas listas para producción</div>
+                
+                <div class="sprint-content">
+                    <div class="app-section">
+                        <h4>Sprint 9-10: Comunicación y Gestión</h4>
+                        <ul>
+                            <li>Chat conductor-pasajero</li>
+                            <li>Notificaciones push</li>
+                            <li>Historial de viajes</li>
+                            <li>Viajes programados</li>
+                            <li>Sistema de cancelación</li>
+                        </ul>
+                    </div>
+                    <div class="app-section">
+                        <h4>Sprint 11-13: Finalización</h4>
+                        <ul>
+                            <li>Sistema de calificaciones</li>
+                            <li>Billetera para conductores</li>
+                            <li>Configuraciones avanzadas</li>
+                            <li>Soporte técnico</li>
+                            <li>Testing y despliegue</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer fade-in">
+            <h2>✅ Criterios de Éxito</h2>
+            <div class="success-criteria">
+                <div class="criteria-item">
+                    <h3>📱 Apps Funcionales</h3>
+                    <p>Ambas apps funcionando en iOS y Android con todas las funcionalidades core</p>
+                </div>
+                <div class="criteria-item">
+                    <h3>💳 Pagos Seguros</h3>
+                    <p>Sistema de pagos completo con PayU, reembolsos automáticos y billetera</p>
+                </div>
+                <div class="criteria-item">
+                    <h3>🗺️ Mapas Integrados</h3>
+                    <p>OpenStreetMap funcionando perfectamente con rutas y ubicaciones</p>
+                </div>
+                <div class="criteria-item">
+                    <h3>⭐ Sistema de Calidad</h3>
+                    <p>Calificaciones, reseñas y soporte técnico implementados</p>
+                </div>
+                <div class="criteria-item">
+                    <h3>🚀 Listas para Producción</h3>
+                    <p>Apps testeadas y preparadas para App Store y Google Play</p>
+                </div>
+                <div class="criteria-item">
+                    <h3>📊 Analytics Integrados</h3>
+                    <p>Firebase Analytics y Crashlytics para monitoreo continuo</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding: 30px; background: linear-gradient(45deg, #3498db, #2980b9); border-radius: 20px; color: white;">
+                <h3 style="margin-bottom: 20px;">🎯 Resultado Final</h3>
+                <p style="font-size: 1.2rem; line-height: 1.8;">
+                    Al finalizar los 6 meses tendrás un <strong>ecosistema completo de viajes compartidos</strong> 
+                    con dos aplicaciones móviles profesionales, sistema de pagos seguro, 
+                    y todas las funcionalidades necesarias para competir en el mercado colombiano.
+                </p>
+                <div style="margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px 25px; border-radius: 25px; font-weight: bold;">
+                        📱 2 Apps Nativas
+                    </div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px 25px; border-radius: 25px; font-weight: bold;">
+                        ☁️ Backend Completo
+                    </div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px 25px; border-radius: 25px; font-weight: bold;">
+                        💳 Pagos Integrados
+                    </div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px 25px; border-radius: 25px; font-weight: bold;">
+                        🚀 Listo para Lanzar
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div style="position: fixed; top: 20px; right: 20px; background: rgba(255,255,255,0.9); padding: 15px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); backdrop-filter: blur(10px);">
+            <div style="font-weight: bold; color: #2c3e50; margin-bottom: 10px;">Progreso General</div>
+            <div style="background: #ecf0f1; height: 8px; border-radius: 4px; width: 200px;">
+                <div style="background: linear-gradient(45deg, #27ae60, #229954); height: 100%; border-radius: 4px; width: 0%; transition: width 3s ease;" id="mainProgress"></div>
+            </div>
+            <div style="font-size: 0.9rem; color: #7f8c8d; margin-top: 5px;">6 meses | 13 sprints</div>
+        </div>
+    </div>
+
+    <script>
+        // Animate progress bars on scroll
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            const mainProgress = document.getElementById('mainProgress');
+            
+            progressBars.forEach((bar, index) => {
+                setTimeout(() => {
+                    const width = bar.style.width;
+                    bar.style.width = width;
+                }, index * 500);
+            });
+
+            // Animate main progress
+            setTimeout(() => {
+                mainProgress.style.width = '100%';
+            }, 1000);
+        }
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Add hover effects
+        function addHoverEffects() {
+            const cards = document.querySelectorAll('.sprint, .tech-item, .criteria-item');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                    card.style.boxShadow = '0 25px 50px rgba(0,0,0,0.15)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.1)';
+                });
+            });
+        }
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial styles for fade-in elements
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'all 0.8s ease';
+            });
+
+            // Animate on page load
+            setTimeout(animateProgressBars, 500);
+            setTimeout(animateOnScroll, 100);
+            addHoverEffects();
+
+            // Animate on scroll
+            window.addEventListener('scroll', animateOnScroll);
+        });
+
+        // Add click effects for interactive elements
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('tech-tag') || 
+                e.target.classList.contains('sprint-number') ||
+                e.target.classList.contains('timeline-info')) {
+                
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255,255,255,0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.left = (e.clientX - e.target.offsetLeft) + 'px';
+                ripple.style.top = (e.clientY - e.target.offsetTop) + 'px';
+                ripple.style.width = ripple.style.height = '20px';
+                
+                e.target.style.position = 'relative';
+                e.target.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            }
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
