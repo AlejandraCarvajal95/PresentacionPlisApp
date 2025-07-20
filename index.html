@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlisApp - Presentación Compacta</title>
+    <title>PlisApp - Presentación Final</title>
     <style>
         * {
             margin: 0;
@@ -13,45 +13,45 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 18px;
+            font-size: 10px;
             line-height: 1.4;
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 10px;
+            padding: 8px;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .header {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 8px;
-            padding: 15px;
+            padding: 12px;
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
         .header h1 {
             color: #2c3e50;
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 4px;
             font-weight: 700;
         }
 
         .header .subtitle {
             color: #7f8c8d;
-            font-size: 20px;
+            font-size: 11px;
             margin-bottom: 8px;
         }
 
         .project-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 8px;
+            gap: 6px;
             background: linear-gradient(45deg, #27ae60, #229954);
             color: white;
             padding: 8px;
@@ -60,131 +60,181 @@
 
         .stat-item {
             text-align: center;
-            padding: 4px;
+            padding: 3px;
         }
 
         .stat-value {
-            font-size: 16px;
+            font-size: 11px;
             font-weight: bold;
             display: block;
         }
 
         .stat-label {
-            font-size: 14px;
+            font-size: 7px;
             opacity: 0.9;
         }
 
         .section {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 10px;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .section h2 {
             color: #2c3e50;
-            margin-bottom: 8px;
-            font-size: 16px;
+            margin-bottom: 6px;
+            font-size: 12px;
             font-weight: 600;
+        }
+
+        .pricing-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .pricing-card {
+            padding: 8px;
+            border-radius: 6px;
+            text-align: center;
+            color: white;
+        }
+
+        .option-1 {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+        }
+
+        .option-2 {
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+            border: 2px solid transparent;
+        }
+
+        .option-2::before {
+            display: none;
+        }
+
+        .pricing-title {
+            font-size: 10px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .pricing-amount {
+            font-size: 12px;
+            font-weight: bold;
+            margin: 3px 0;
+        }
+
+        .pricing-details {
+            font-size: 8px;
+            opacity: 0.9;
         }
 
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 6px;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 4px;
         }
 
         .tech-item {
-            background: linear-gradient(45deg, #3498db, #2980b9);
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
             color: white;
-            padding: 6px;
+            padding: 4px;
             border-radius: 4px;
             text-align: center;
-            font-size: 14px;
+            font-size: 8px;
         }
 
         .phases-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 8px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 6px;
         }
 
         .phase-card {
             background: #f8f9fa;
             border-radius: 6px;
-            padding: 8px;
-            border-left: 3px solid #1a365d;
+            padding: 6px;
+            border-left: 3px solid #e74c3c;
         }
 
         .phase-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .phase-number {
-            background: #1a365d;
+            background: #e74c3c;
             color: white;
-            padding: 2px 6px;
-            border-radius: 8px;
+            padding: 2px 5px;
+            border-radius: 6px;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 7px;
         }
 
         .phase-budget {
             background: #27ae60;
             color: white;
-            padding: 2px 5px;
-            border-radius: 6px;
-            font-size: 12px;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 6px;
             font-weight: bold;
         }
 
         .phase-title {
             font-weight: 600;
             color: #2c3e50;
-            margin: 4px 0;
-            font-size: 14px;
+            margin: 2px 0;
+            font-size: 9px;
         }
 
         .phase-objective {
             background: #e3f2fd;
-            padding: 4px;
+            padding: 3px;
             border-radius: 3px;
-            font-size: 12px;
-            margin: 4px 0;
+            font-size: 7px;
+            margin: 3px 0;
         }
 
         .deliverables {
-            font-size: 12px;
+            font-size: 7px;
         }
 
         .deliverables h5 {
             color: #34495e;
-            margin: 4px 0 2px 0;
-            font-size: 14px;
+            margin: 3px 0 2px 0;
+            font-size: 8px;
         }
 
         .deliverables ul {
             margin: 0;
-            padding-left: 12px;
+            padding-left: 8px;
         }
 
         .deliverables li {
             margin: 1px 0;
         }
 
+        .timeline-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 8px;
+        }
+
         .timeline-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 12px;
+            font-size: 7px;
         }
 
         .timeline-table th,
         .timeline-table td {
-            padding: 4px 3px;
+            padding: 3px 2px;
             text-align: center;
             border: 1px solid #ddd;
         }
@@ -193,7 +243,7 @@
             background: #34495e;
             color: white;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 7px;
         }
 
         .timeline-table tr:nth-child(even) {
@@ -206,112 +256,110 @@
             font-weight: bold;
         }
 
-        .mvp-highlight {
-            background: linear-gradient(45deg, #1a365d, #c0392b);
-            color: white;
-            padding: 8px;
-            border-radius: 6px;
-            text-align: center;
-            margin: 8px 0;
-            font-size: 14px;
+        .criteria-compact {
+            background: #f8f9fa;
+            padding: 4px;
+            border-radius: 4px;
+            margin: 2px 0;
+        }
+
+        .criteria-compact h4 {
+            font-size: 8px;
+            color: #e74c3c;
+            margin-bottom: 2px;
+        }
+
+        .criteria-compact ul {
+            font-size: 6px;
+            margin: 0;
+            padding-left: 6px;
+        }
+
+        .criteria-compact li {
+            margin: 1px 0;
         }
 
         .summary-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 8px;
-            text-align: center;
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+            gap: 6px;
         }
 
         .summary-card {
-            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+            background: linear-gradient(45deg, #f39c12, #e67e22);
             color: white;
-            padding: 8px;
+            padding: 6px;
             border-radius: 6px;
             text-align: center;
         }
 
         .summary-card h3 {
-            font-size: 14px;
-            margin-bottom: 4px;
+            font-size: 8px;
+            margin-bottom: 3px;
         }
 
         .summary-value {
-            font-size: 14px;
+            font-size: 10px;
             font-weight: bold;
-            margin: 3px 0;
+            margin: 2px 0;
         }
 
         .summary-card p {
-            font-size: 12px;
+            font-size: 6px;
             opacity: 0.9;
         }
 
-        .compact-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 6px;
-            font-size: 12px;
+        .highlight-box {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 8px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 6px 0;
+            font-size: 8px;
         }
 
-        .compact-item {
+        .key-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 4px;
+            font-size: 7px;
+        }
+
+        .feature-item {
             background: #f1f2f6;
-            padding: 6px;
+            padding: 4px;
             border-radius: 4px;
             border-left: 2px solid #3498db;
         }
 
-        .compact-item strong {
+        .feature-item strong {
             color: #2c3e50;
             display: block;
-            margin-bottom: 2px;
+            margin-bottom: 1px;
+            font-size: 8px;
         }
 
         @media (max-width: 768px) {
             body {
-                font-size: 14px;
+                font-size: 9px;
             }
             
             .header h1 {
-                font-size: 18x;
+                font-size: 16px;
             }
             
             .phases-grid {
                 grid-template-columns: 1fr;
             }
             
-            .timeline-table {
-                font-size: 12px;
+            .timeline-section {
+                grid-template-columns: 1fr;
             }
-        }
-
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .criteria-compact {
-            background: #f8f9fa;
-            padding: 6px;
-            border-radius: 4px;
-            margin: 4px 0;
-        }
-
-        .criteria-compact h4 {
-            font-size: 14px;
-            color: #1a365d;
-            margin-bottom: 3px;
-        }
-
-        .criteria-compact ul {
-            font-size: 12px;
-            margin: 0;
-            padding-left: 8px;
-        }
-
-        .criteria-compact li {
-            margin: 1px 0;
+            
+            .pricing-options {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -335,13 +383,23 @@
                     <span class="stat-label">Productos</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-value">$15M+12% de la aplicación</span>
-                    <span class="stat-label">Total COP</span>
+                    <span class="stat-value">2 opciones</span>
+                    <span class="stat-label">Precios</span>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-value">$3M</span>
-                    <span class="stat-label">Por fase</span>
-                </div>
+            </div>
+        </div>
+
+        <!-- Opciones de Precios -->
+        <div class="pricing-options">
+            <div class="pricing-card option-1">
+                <div class="pricing-title">Opción 1 - Solo Efectivo</div>
+                <div class="pricing-amount">$4.500.000</div>
+                <div class="pricing-details">por fase<br>Total: $22.500.000</div>
+            </div>
+            <div class="pricing-card option-2">
+                <div class="pricing-title">Opción 2 - Híbrida</div>
+                <div class="pricing-amount">$3.000.000</div>
+                <div class="pricing-details">por fase + 12% ganancias<br>Total: $15.000.000</div>
             </div>
         </div>
 
@@ -357,11 +415,6 @@
             </div>
         </div>
 
-        <!-- MVP Highlight -->
-        <div class="mvp-highlight">
-            <strong>🎯 MVP Listo en 4 Semanas:</strong> App conductor funcional (.apk) para mostrar a inversionistas
-        </div>
-
         <!-- Fases -->
         <div class="section">
             <h2>📋 Fases del Desarrollo</h2>
@@ -370,25 +423,17 @@
                 <div class="phase-card">
                     <div class="phase-header">
                         <div class="phase-number">FASE 1</div>
-                        <div class="phase-budget">$3M</div>
+                        <div class="phase-budget">$4.5M</div>
                     </div>
-                    <div class="phase-title">App Conductor y admin: MVP</div>
-                    <div class="phase-objective">App conductor y admin funcional y descargable (.apk)</div>
+                    <div class="phase-title">App Conductor: MVP</div>
+                    <div class="phase-objective">App conductor + admin funcionales (.apk)</div>
                     <div class="deliverables">
-                        <h5>🚗 Entregables: App admin y conductor</h5>
+                        <h5>🚗 Entregables:</h5>
                         <ul>
-                            <li>Configuración básica</li>
-                            <li>Integración Firebase (Auth + Firestore)</li>
-                            <li>Login/Registro completo</li>
-                            <li>Home básica</li>
-                            <li>Términos y condiciones</li>
-                            <li>Crear viajes funcional</li>
-                            <li>Generación de precio por equipaje</li>
-                            <li>Visualización de viajes creados</li>
-                            <li>Pruebas básicas</li>
-                            <li>APK instalable</li>
-                            <li>Solicitud de documentos necesarios</li>
-                            <li>Aprobación de conductores nuevos</li>
+                            <li>Config + Firebase + Login</li>
+                            <li>Crear viajes + Mapas</li>
+                            <li>APK Conductor</li>
+                            <li>App Admin + Aprobaciones</li>
                         </ul>
                     </div>
                 </div>
@@ -396,25 +441,17 @@
                 <div class="phase-card">
                     <div class="phase-header">
                         <div class="phase-number">FASE 2</div>
-                        <div class="phase-budget">$3M</div>
+                        <div class="phase-budget">$4.5M</div>
                     </div>
-                    <div class="phase-title">Expansión + App Usuario</div>
-                    <div class="phase-objective">Completar conductor + base usuario</div>
+                    <div class="phase-title">App Usuario + Expansión</div>
+                    <div class="phase-objective">App usuario completa + gestión</div>
                     <div class="deliverables">
-                        <h5>📱 Entregables: App conductor</h5>
+                        <h5>👥 Entregables:</h5>
                         <ul>
-                            <li>Paradas y equipaje</li>
-                            <li>Cupos de equipaje (por tamaños)</li>
-                            <li>Viajes programados y visualización</li>
-                            <li>Historial de viajes</li>
-                            <li>Cancelar viaje y penalización</li>
-                            <li>Soporte técnico</li>
-                        </ul>
-                        <h5>📱 Entregables: App usuario</h5>
-                        <ul>
-                            <li>Configuración base del proyecto</li>
-                            <li>Integración Firebase</li>
-                            <li>Registro y login</li>
+                            <li>Usuario: Config + Login</li>
+                            <li>Búsqueda + Reservas</li>
+                            <li>APK Usuario</li>
+                            <li>Gestión en Admin</li>
                         </ul>
                     </div>
                 </div>
@@ -422,24 +459,17 @@
                 <div class="phase-card">
                     <div class="phase-header">
                         <div class="phase-number">FASE 3</div>
-                        <div class="phase-budget">$3M</div>
+                        <div class="phase-budget">$4.5M</div>
                     </div>
-                    <div class="phase-title">UI + Mapas</div>
-                    <div class="phase-objective">Mejorar UX + integrar mapas</div>
+                    <div class="phase-title">UI Avanzada + Mapas</div>
+                    <div class="phase-objective">Funcionalidades avanzadas + UX</div>
                     <div class="deliverables">
-                        <h5>🗺️ Entregables: App conductor</h5>
+                        <h5>🎨 Entregables:</h5>
                         <ul>
-                            <li>Tarjetas expandidas de viaje (paradas, equipaje, cupos, capa mock)</li>
-                            <li>Aceptar viaje y ver info del usuario</li>
-                            <li>Calificar usuarios</li>
-                            <li>Integración inicial de mapas (OpenStreetMap)</li>
-                            <li>Configuración del perfil del conductor</li>
-                        </ul>
-                        <h5>🗺️ Entregables: App usuario</h5>
-                        <ul>
-                            <li>Home de usuario con viajes recientes</li>
-                            <li>Página de buscador con filtros (solo UI)</li>
-                            <li>Términos y soporte técnico</li>
+                            <li>Tarjetas ampliadas</li>
+                            <li>OpenStreetMap completo</li>
+                            <li>Filtros funcionales</li>
+                            <li>Equipaje + Precios auto</li>
                         </ul>
                     </div>
                 </div>
@@ -447,23 +477,17 @@
                 <div class="phase-card">
                     <div class="phase-header">
                         <div class="phase-number">FASE 4</div>
-                        <div class="phase-budget">$3M</div>
+                        <div class="phase-budget">$4.5M</div>
                     </div>
                     <div class="phase-title">Pagos + Conexión</div>
-                    <div class="phase-objective">Conectar apps + pagos</div>
+                    <div class="phase-objective">Sistema completo de pagos</div>
                     <div class="deliverables">
-                        <h5>💳 Entregables: App usuario</h5>
+                        <h5>💳 Entregables:</h5>
                         <ul>
-                            <li>Tomar viajes, ver detalles y contactar conductor - App Usuario</li>
-                            <li>Historial - App usuario</li>
-                            <li>Cancelar viaje y penalizacion - App usuario</li>
-                            <li>Calificación al conductor - App usuario</li>
-                        </ul>
-                        <h5>💳 Entregables: Ambas</h5>
-                        <ul>
-                            <li>PayU integrado</li>
-                            <li>Notificaciones push</li>
-                            <li>Pruebas funcionales y ajustes UI</li>
+                            <li>PayU + Efectivo</li>
+                            <li>Código conductor-usuario</li>
+                            <li>Notificaciones FCM</li>
+                            <li>Calificaciones mutuas</li>
                         </ul>
                     </div>
                 </div>
@@ -471,7 +495,7 @@
                 <div class="phase-card">
                     <div class="phase-header">
                         <div class="phase-number">FASE 5</div>
-                        <div class="phase-budget">$3M</div>
+                        <div class="phase-budget">$4.5M</div>
                     </div>
                     <div class="phase-title">Finalización</div>
                     <div class="phase-objective">Apps listas para producción</div>
@@ -479,112 +503,159 @@
                         <h5>🚀 Entregables:</h5>
                         <ul>
                             <li>Pruebas integradas</li>
-                            <li>Ajustes de rendimiento</li>
-                            <li>Ui final: limpieza visual</li>
-                            <li>creación de archivo de apk</li>
-                            <li>Guía básica</li>
-                            <li>Evaluación de próximos pasos (soporte, Play Store, etc)</li>
+                            <li>3 APKs finales</li>
+                            <li>Documentación</li>
+                            <li>Reportes Admin</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Timeline y Criterios en dos columnas -->
-        <div class="two-column">
+        <!-- Timeline y Criterios -->
+        <div class="timeline-section">
             <!-- Timeline -->
             <div class="section">
-                <h2>📅 Cronograma de Pagos</h2>
+                <h2>📅 Cronograma</h2>
                 <table class="timeline-table">
                     <thead>
                         <tr>
-                            <th>Fase</th>
                             <th>Sem</th>
-                            <th>Entregable</th>
+                            <th>Fase</th>
+                            <th>Conductor</th>
+                            <th>Usuario</th>
+                            <th>Admin</th>
                             <th>Pago</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>F1</strong></td>
-                            <td>1-4</td>
-                            <td>MVP Conductor</td>
-                            <td>$3M</td>
-                        </tr>
-                        <tr>
-                            <td><strong>F2</strong></td>
-                            <td>5-8</td>
-                            <td>Conductor + Usuario</td>
-                            <td>$3M</td>
-                        </tr>
-                        <tr>
-                            <td><strong>F3</strong></td>
-                            <td>9-12</td>
-                            <td>UI + Mapas</td>
-                            <td>$3M</td>
-                        </tr>
-                        <tr>
-                            <td><strong>F4</strong></td>
-                            <td>13-16</td>
-                            <td>Apps + Pagos</td>
-                            <td>$3M</td>
+                            <td>1-2</td>
+                            <td>F1-E1</td>
+                            <td>Config+Login</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
                         </tr>
                         <tr class="payment-row">
-                            <td><strong>F5</strong></td>
-                            <td>17-20</td>
-                            <td>Producción</td>
-                            <td><strong>$3M</strong></td>
+                            <td>3-4</td>
+                            <td>F1-E2</td>
+                            <td>APK</td>
+                            <td>—</td>
+                            <td>Config</td>
+                            <td><strong>$4.5M</strong></td>
+                        </tr>
+                        <tr>
+                            <td>5-6</td>
+                            <td>F2-E1</td>
+                            <td>—</td>
+                            <td>Config+Búsq</td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                        <tr class="payment-row">
+                            <td>7-8</td>
+                            <td>F2-E2</td>
+                            <td>Cancel</td>
+                            <td>APK</td>
+                            <td>Gestión</td>
+                            <td><strong>$4.5M</strong></td>
+                        </tr>
+                        <tr>
+                            <td>9-10</td>
+                            <td>F3-E1</td>
+                            <td>Avanzado</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                        <tr class="payment-row">
+                            <td>11-12</td>
+                            <td>F3-E2</td>
+                            <td>Mapas</td>
+                            <td>Filtros</td>
+                            <td>—</td>
+                            <td><strong>$4.5M</strong></td>
+                        </tr>
+                        <tr>
+                            <td>13-14</td>
+                            <td>F4-E1</td>
+                            <td>Pagos</td>
+                            <td>Reservas</td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                        <tr class="payment-row">
+                            <td>15-16</td>
+                            <td>F4-E2</td>
+                            <td>Calific</td>
+                            <td>Calific</td>
+                            <td>Reportes</td>
+                            <td><strong>$4.5M</strong></td>
+                        </tr>
+                        <tr>
+                            <td>17-18</td>
+                            <td>F5-E1</td>
+                            <td>Pruebas</td>
+                            <td>Pruebas</td>
+                            <td>Pruebas</td>
+                            <td>—</td>
+                        </tr>
+                        <tr class="payment-row">
+                            <td>19-20</td>
+                            <td>F5-E2</td>
+                            <td>Final</td>
+                            <td>Final</td>
+                            <td>Final</td>
+                            <td><strong>$4.5M</strong></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- Criterios Compactos -->
+            <!-- Criterios -->
             <div class="section">
-                <h2>✅ Criterios de Aceptación</h2>
+                <h2>✅ Criterios</h2>
                 <div class="criteria-compact">
-                    <h4>Fase 1 - MVP</h4>
+                    <h4>Fase 1</h4>
                     <ul>
-                        <li>Login/logout funcional</li>
+                        <li>Login funcional</li>
                         <li>Firebase conectado</li>
-                        <li>Crear viaje guarda datos</li>
-                        <li>APK instalable sin errores</li>
+                        <li>APK instalable</li>
+                        <li>Admin aprobaciones</li>
                     </ul>
                 </div>
                 <div class="criteria-compact">
-                    <h4>Fase 2 - Inicio App Usuarios</h4>
+                    <h4>Fase 2</h4>
                     <ul>
-                        <li>Agregar paradas</li>
-                        <li>Viajes programados e históricos</li>
-                        <li>Cancelar viaje con penalización</li>
-                        <li>Soporte técnico</li>
+                        <li>Usuario búsqueda</li>
+                        <li>APK Usuario</li>
+                        <li>Gestión admin</li>
                     </ul>
                 </div>
                 <div class="criteria-compact">
-                    <h4>Fase 3 - Ui Avanzada</h4>
+                    <h4>Fase 3</h4>
                     <ul>
-                        <li>Mapas</li>
-                        <li>Calificación del viaje</li>
-                        <li>Ui home para usuario</li>
-                        <li>Buscador de viajes</li>
+                        <li>Tarjetas ampliadas</li>
+                        <li>Mapas integrados</li>
+                        <li>Filtros funcionales</li>
+                        <li>Precios automáticos</li>
                     </ul>
                 </div>
                 <div class="criteria-compact">
-                    <h4>Fase 4 - Conexión</h4>
+                    <h4>Fase 4</h4>
                     <ul>
-                        <li>Pago registrado</li>
-                        <li>Usuario toma viaje</li>
-                        <li>Notificaciones funcionan</li>
-                        <li>Historial completo</li>
+                        <li>Pagos registrados</li>
+                        <li>Notificaciones FCM</li>
+                        <li>Reservas completas</li>
                     </ul>
                 </div>
                 <div class="criteria-compact">
-                    <h4>Fase 5 - Final</h4>
+                    <h4>Fase 5</h4>
                     <ul>
-                        <li>Pruebas cruzadas exitosas</li>
-                        <li>APK final ambas apps</li>
-                        <li>Documentación completa</li>
-                        <li>Flujo completo validado</li>
+                        <li>3 APKs finales</li>
+                        <li>Docs completa</li>
+                        <li>Flujo validado</li>
                     </ul>
                 </div>
             </div>
@@ -597,73 +668,77 @@
                 <div class="summary-card">
                     <h3>🎯 MVP</h3>
                     <div class="summary-value">4 sem</div>
-                    <p>App para inversores</p>
+                    <p>App funcional</p>
                 </div>
                 <div class="summary-card">
-                    <h3>Total</h3>
-                    <div class="summary-value">$15M+12% de la aplicación</div>
-                    <p>5 pagos de $3M</p>
+                    <h3>💰 Opción 2</h3>
+                    <div class="summary-value">$22.5M</div>
+                    <p>+ opción equity</p>
                 </div>
                 <div class="summary-card">
                     <h3>📱 Apps</h3>
-                    <div class="summary-value">2</div>
-                    <p>Conductor + Usuario</p>
+                    <div class="summary-value">3</div>
+                    <p>Completas</p>
                 </div>
                 <div class="summary-card">
-                    <h3>🚀 Producción</h3>
+                    <h3>🚀 Tiempo</h3>
                     <div class="summary-value">20 sem</div>
-                    <p>Listo para mercado</p>
+                    <p>A producción</p>
                 </div>
             </div>
         </div>
 
-        <!-- Ventajas -->
+        <!-- Características Clave -->
         <div class="section">
-            <h2>✨ Ventajas Clave</h2>
-            <div class="compact-list">
-                <div class="compact-item">
+            <h2>✨ Características Clave</h2>
+            <div class="key-features">
+                <div class="feature-item">
                     <strong>MVP Temprano</strong>
-                    App funcional en 1 mes para mostrar a inversionistas
+                    App conductor funcional en 4 semanas para mostrar a inversionistas
                 </div>
-                <div class="compact-item">
-                    <strong>Entregas Frecuentes</strong>
-                    Validación cada 2 semanas con feedback continuo
+                <div class="feature-item">
+                    <strong>3 Aplicaciones</strong>
+                    Conductor, Usuario y Administrador con funcionalidades completas
                 </div>
-                <div class="compact-item">
-                    <strong>Pago por Resultados</strong>
-                    Solo se paga cuando se entrega funcionalidad
+                <div class="feature-item">
+                    <strong>Sistema de Pagos</strong>
+                    PayU integrado + pagos en efectivo con códigos de verificación
                 </div>
-                <div class="compact-item">
-                    <strong>Stack Escalable</strong>
-                    Tecnologías modernas preparadas para crecimiento
+                <div class="feature-item">
+                    <strong>Gestión Admin</strong>
+                    Aprobación de conductores, gestión de usuarios y reportes
                 </div>
-                <div class="compact-item">
-                    <strong>Enfoque Local</strong>
-                    Optimizado específicamente para Colombia
+                <div class="feature-item">
+                    <strong>Mapas Integrados</strong>
+                    OpenStreetMap con rutas estáticas y dinámicas
                 </div>
-                <div class="compact-item">
-                    <strong>Riesgo Controlado</strong>
-                    Desarrollo por fases minimiza riesgo financiero
+                <div class="feature-item">
+                    <strong>Notificaciones</strong>
+                    Sistema completo FCM para todas las interacciones
                 </div>
             </div>
+        </div>
+
+        <!-- Destacado Final -->
+        <div class="highlight-box">
+            <strong>🎉 Dos Opciones Disponibles:</strong> Opción 1 - $22.5M | Opción 2 - $15M + 12% equity | MVP en 1 mes | 3 apps completas en 5 meses
         </div>
     </div>
 
     <script>
-        // Animaciones ligeras
+        // Animaciones ligeras y rápidas
         document.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('.section, .phase-card');
+            const elements = document.querySelectorAll('.section, .phase-card, .pricing-card');
             elements.forEach((el, i) => {
                 el.style.opacity = '0';
-                el.style.transform = 'translateY(10px)';
+                el.style.transform = 'translateY(8px)';
                 setTimeout(() => {
                     el.style.transition = 'all 0.3s ease';
                     el.style.opacity = '1';
                     el.style.transform = 'translateY(0)';
-                }, i * 50);
+                }, i * 30);
             });
         });
     </script>
 </body>
 </html>
-
