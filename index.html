@@ -12,351 +12,516 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 10px;
-            line-height: 1.4;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #f8fafc;
             min-height: 100vh;
-            padding: 8px;
+            padding: 20px;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 8px;
-            padding: 12px;
+        /* Header moderno */
+        .hero {
+            background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+            border-radius: 20px;
+            padding: 40px;
+            color: white;
             text-align: center;
-            margin-bottom: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .header h1 {
-            color: #2c3e50;
-            font-size: 18px;
-            margin-bottom: 4px;
-            font-weight: 700;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="30" r="1.5" fill="white" opacity="0.1"/></svg>');
+            pointer-events: none;
         }
 
-        .header .subtitle {
-            color: #7f8c8d;
-            font-size: 11px;
-            margin-bottom: 8px;
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
 
-        .project-stats {
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 6px;
-            background: linear-gradient(45deg, #27ae60, #229954);
-            color: black;
-            padding: 8px;
-            border-radius: 6px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .stat-item {
+        .stat-card {
             text-align: center;
-            padding: 3px;
         }
 
-        .stat-value {
-            font-size: 11px;
-            font-weight: bold;
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
             display: block;
+            margin-bottom: 5px;
         }
 
         .stat-label {
-            font-size: 7px;
-            opacity: 0.9;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 6px;
-            padding: 10px;
-            margin-bottom: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        /* Cards modernas */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
         }
 
-        .section h2 {
-            color: #2c3e50;
-            margin-bottom: 6px;
-            font-size: 12px;
-            font-weight: 600;
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        .pricing-options {
-            
-            gap: 8px;
-            margin-bottom: 8px;
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f1f5f9;
         }
 
-        .pricing-card {
-            padding: 8px;
-            border-radius: 6px;
+        .card-icon {
+            font-size: 1.8rem;
+            margin-right: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        /* Pricing destacado */
+        .pricing-hero {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
             text-align: center;
-            color: black;
+            margin-bottom: 30px;
+            position: relative;
         }
 
-        .option-1 {
-            background: linear-gradient(45deg, #3498db, #2980b9);
+        .pricing-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
         }
 
-        .option-2 {
-            background: linear-gradient(45deg, #9b59b6, #8e44ad);
-            border: 2px solid transparent;
+        .price-main {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
         }
 
-        .option-2::before {
-            display: none;
-        }
-
-        .pricing-title {
-            font-size: 10px;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-
-        .pricing-amount {
-            font-size: 12px;
-            font-weight: bold;
-            margin: 3px 0;
-        }
-
-        .pricing-details {
-            font-size: 8px;
+        .price-detail {
+            font-size: 1.1rem;
             opacity: 0.9;
         }
 
+        /* Tech stack con iconos */
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 4px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
 
-        .tech-item {
-            background: linear-gradient(45deg, #9b59b6, #8e44ad);
-            color: black;
-            padding: 4px;
-            border-radius: 4px;
+        .tech-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
             text-align: center;
-            font-size: 8px;
+            transition: all 0.3s ease;
         }
 
-        .phases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 6px;
+        .tech-card:hover {
+            border-color: #7c3aed;
+            transform: translateY(-3px);
+            background: #faf5ff;
+        }
+
+        .tech-card h3 {
+            color: #1e293b;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Fases con diseño de timeline */
+        .phases-container {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #7c3aed, #1e40af);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .phase-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .phase-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .phase-content {
+            flex: 1;
+            max-width: 45%;
+            margin: 0 20px;
         }
 
         .phase-card {
-            background: #f8f9fa;
-            border-radius: 6px;
-            padding: 6px;
-            border-left: 3px solid #e74c3c;
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #7c3aed;
+            position: relative;
         }
 
         .phase-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 4px;
+            margin-bottom: 15px;
         }
 
         .phase-number {
-            background: #e74c3c;
-            color: black;
-            padding: 2px 5px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 7px;
+            background: linear-gradient(135deg, #7c3aed, #1e40af);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
         }
 
         .phase-budget {
-            background: #27ae60;
-            color: black;
-            padding: 2px 4px;
-            border-radius: 4px;
-            font-size: 6px;
-            font-weight: bold;
+            background: #10b981;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
         }
 
         .phase-title {
-            font-weight: 600;
-            color: #2c3e50;
-            margin: 2px 0;
-            font-size: 9px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 10px;
         }
 
         .phase-objective {
-            background: #e3f2fd;
-            padding: 3px;
-            border-radius: 3px;
-            font-size: 7px;
-            margin: 3px 0;
+            background: #eff6ff;
+            color: #1e40af;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            border-left: 3px solid #3b82f6;
         }
 
-        .deliverables {
-            font-size: 7px;
-        }
-
-        .deliverables h5 {
-            color: #34495e;
-            margin: 3px 0 2px 0;
-            font-size: 8px;
+        .deliverables h4 {
+            color: #374151;
+            margin-bottom: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
         }
 
         .deliverables ul {
-            margin: 0;
-            padding-left: 8px;
+            list-style: none;
+            padding: 0;
         }
 
         .deliverables li {
-            margin: 1px 0;
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #4b5563;
         }
 
-        .timeline-section {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 8px;
+        .deliverables li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
         }
 
+        /* Timeline de desarrollo */
         .timeline-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 7px;
-        }
-
-        .timeline-table th,
-        .timeline-table td {
-            padding: 3px 2px;
-            text-align: center;
-            border: 1px solid #ddd;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .timeline-table th {
-            background: #34495e;
-            color:black;
+            background: #1e293b;
+            color: white;
+            padding: 16px 12px;
             font-weight: 600;
-            font-size: 7px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .timeline-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.85rem;
         }
 
         .timeline-table tr:nth-child(even) {
-            background-color: #f8f9fa;
+            background: #f8fafc;
         }
 
         .payment-row {
-            background: linear-gradient(45deg, #27ae60, #229954) !important;
-            color: black;
+            background: linear-gradient(135deg, #10b981, #059669) !important;
+            color: white;
+            font-weight: 600;
+        }
+
+        .payment-row td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Criterios con mejor diseño */
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .criteria-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #ef4444;
+        }
+
+        .criteria-card h4 {
+            color: #ef4444;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .criteria-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .criteria-card li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #4b5563;
+        }
+
+        .criteria-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #ef4444;
             font-weight: bold;
+            font-size: 1.2rem;
         }
 
-        .criteria-compact {
-            background: #f8f9fa;
-            padding: 4px;
-            border-radius: 4px;
-            margin: 2px 0;
-        }
-
-        .criteria-compact h4 {
-            font-size: 8px;
-            color: #e74c3c;
-            margin-bottom: 2px;
-        }
-
-        .criteria-compact ul {
-            font-size: 6px;
-            margin: 0;
-            padding-left: 6px;
-        }
-
-        .criteria-compact li {
-            margin: 1px 0;
-        }
-
+        /* Resumen ejecutivo */
         .summary-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-            gap: 6px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
 
         .summary-card {
-            background: linear-gradient(45deg, #f39c12, #e67e22);
-            color:black;
-            padding: 6px;
-            border-radius: 6px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 25px;
+            border-radius: 16px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(20px, -20px);
         }
 
         .summary-card h3 {
-            font-size: 8px;
-            margin-bottom: 3px;
-        }
-
-        .summary-value {
-            font-size: 10px;
-            font-weight: bold;
-            margin: 2px 0;
-        }
-
-        .summary-card p {
-            font-size: 6px;
+            font-size: 1rem;
+            margin-bottom: 10px;
             opacity: 0.9;
         }
 
-        .highlight-box {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            color: black;
-            padding: 8px;
-            border-radius: 6px;
-            text-align: center;
-            margin: 6px 0;
-            font-size: 8px;
+        .summary-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
         }
 
-        .key-features {
+        .summary-card p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Features destacadas */
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 4px;
-            font-size: 7px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
-        .feature-item {
-            background: #f1f2f6;
-            padding: 4px;
-            border-radius: 4px;
-            border-left: 2px solid #3498db;
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
-        .feature-item strong {
-            color: #2c3e50;
-            display: block;
-            margin-bottom: 1px;
-            font-size: 8px;
+        .feature-card h4 {
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
         }
 
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* CTA final */
+        .cta-banner {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" fill="white" opacity="0.05"/></svg>');
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-banner h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .cta-banner p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            body {
-                font-size: 9px;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            .header h1 {
-                font-size: 16px;
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
             
-            .phases-grid {
-                grid-template-columns: 1fr;
+            .timeline-line {
+                left: 30px;
             }
             
-            .timeline-section {
-                grid-template-columns: 1fr;
+            .phase-item {
+                flex-direction: column !important;
             }
             
-            .pricing-options {
+            .phase-content {
+                max-width: 100%;
+                margin-left: 60px;
+                margin-right: 0;
+            }
+            
+            .features-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -364,154 +529,193 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>🚗 PlisApp</h1>
-            <div class="subtitle">App de Viajes Compartidos - Desarrollo por Fases</div>
-            <div class="project-stats">
-                <div class="stat-item">
-                    <span class="stat-value">20 sem</span>
-                    <span class="stat-label">Duración</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">5 fases</span>
-                    <span class="stat-label">Entregas</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">3 apps</span>
-                    <span class="stat-label">Productos</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">2 opciones</span>
-                    <span class="stat-label">Precios</span>
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>🚗 PlisApp</h1>
+                <p class="subtitle">App de Viajes Compartidos - Desarrollo por Fases</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">20</span>
+                        <span class="stat-label">Semanas</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Fases</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Apps</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Opciones</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Opciones de Precios -->
-       <div class="pricing-options">
-           <div class="pricing-card">
-                <div class="pricing-title">Presupuesto</div>
-                <div class="pricing-amount">$4.500.000</div>
-                <div class="pricing-details">por fase<br>Total: $22.500.000</div>
-            <div>   
-     <div>
-       
+        <!-- Pricing -->
+        <div class="pricing-hero">
+            <div class="pricing-badge">Presupuesto</div>
+            <div class="price-main">$4.500.000</div>
+            <div class="price-detail">por fase | Total: $22.500.000</div>
+        </div>
 
         <!-- Tech Stack -->
-        <div class="section">
-            <h2>🛠️ Stack Tecnológico</h2>
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🛠️</span>
+                <h2 class="card-title">Stack Tecnológico</h2>
+            </div>
             <div class="tech-grid">
-                <div class="tech-item">Flutter + Dart</div>
-                <div class="tech-item">Firebase Suite</div>
-                <div class="tech-item">OpenStreetMap</div>
-                <div class="tech-item">PayU Colombia</div>
-                <div class="tech-item">Git + GitHub</div>
+                <div class="tech-card">
+                    <h3>Flutter + Dart</h3>
+                </div>
+                <div class="tech-card">
+                    <h3>Firebase Suite</h3>
+                </div>
+                <div class="tech-card">
+                    <h3>OpenStreetMap</h3>
+                </div>
+                <div class="tech-card">
+                    <h3>PayU Colombia</h3>
+                </div>
+                <div class="tech-card">
+                    <h3>Git + GitHub</h3>
+                </div>
             </div>
         </div>
 
-        <!-- Fases -->
-        <div class="section">
-            <h2>📋 Fases del Desarrollo</h2>
-            <div class="phases-grid">
+        <!-- Fases del Desarrollo -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📋</span>
+                <h2 class="card-title">Fases del Desarrollo</h2>
+            </div>
+            <div class="phases-container">
+                <div class="timeline-line"></div>
                 
-                <div class="phase-card">
-                    <div class="phase-header">
-                        <div class="phase-number">FASE 1</div>
-                        <div class="phase-budget">$4.5M</div>
-                    </div>
-                    <div class="phase-title">App Conductor: MVP</div>
-                    <div class="phase-objective">App conductor + admin funcionales (.apk)</div>
-                    <div class="deliverables">
-                        <h5>🚗 Entregables:</h5>
-                        <ul>
-                            <li>Config + Firebase + Login</li>
-                            <li>Crear viajes + Mapas</li>
-                            <li>APK Conductor</li>
-                            <li>App Admin + Aprobaciones</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="phase-card">
-                    <div class="phase-header">
-                        <div class="phase-number">FASE 2</div>
-                        <div class="phase-budget">$4.5M</div>
-                    </div>
-                    <div class="phase-title">App Usuario + Expansión</div>
-                    <div class="phase-objective">App usuario completa + gestión</div>
-                    <div class="deliverables">
-                        <h5>👥 Entregables:</h5>
-                        <ul>
-                            <li>Usuario: Config + Login</li>
-                            <li>Búsqueda + Reservas</li>
-                            <li>APK Usuario</li>
-                            <li>Gestión en Admin</li>
-                        </ul>
+                <div class="phase-item">
+                    <div class="phase-content">
+                        <div class="phase-card">
+                            <div class="phase-header">
+                                <div class="phase-number">FASE 1</div>
+                                <div class="phase-budget">$4.5M</div>
+                            </div>
+                            <div class="phase-title">App Conductor: MVP</div>
+                            <div class="phase-objective">App conductor + admin funcionales (.apk)</div>
+                            <div class="deliverables">
+                                <h4>🚗 Entregables:</h4>
+                                <ul>
+                                    <li>Config + Firebase + Login</li>
+                                    <li>Crear viajes</li>
+                                    <li>APK Conductor</li>
+                                    <li>App Admin + Aprobaciones</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="phase-card">
-                    <div class="phase-header">
-                        <div class="phase-number">FASE 3</div>
-                        <div class="phase-budget">$4.5M</div>
-                    </div>
-                    <div class="phase-title">UI Avanzada + Mapas</div>
-                    <div class="phase-objective">Funcionalidades avanzadas + UX</div>
-                    <div class="deliverables">
-                        <h5>🎨 Entregables:</h5>
-                        <ul>
-                            <li>Tarjetas ampliadas</li>
-                            <li>OpenStreetMap completo</li>
-                            <li>Filtros funcionales</li>
-                            <li>Equipaje + Precios auto</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="phase-card">
-                    <div class="phase-header">
-                        <div class="phase-number">FASE 4</div>
-                        <div class="phase-budget">$4.5M</div>
-                    </div>
-                    <div class="phase-title">Pagos + Conexión</div>
-                    <div class="phase-objective">Sistema completo de pagos</div>
-                    <div class="deliverables">
-                        <h5>💳 Entregables:</h5>
-                        <ul>
-                            <li>PayU + Efectivo</li>
-                            <li>Código conductor-usuario</li>
-                            <li>Notificaciones FCM</li>
-                            <li>Calificaciones mutuas</li>
-                        </ul>
+                <div class="phase-item">
+                    <div class="phase-content">
+                        <div class="phase-card">
+                            <div class="phase-header">
+                                <div class="phase-number">FASE 2</div>
+                                <div class="phase-budget">$4.5M</div>
+                            </div>
+                            <div class="phase-title">App Usuario + Expansión</div>
+                            <div class="phase-objective">App usuario completa + gestión</div>
+                            <div class="deliverables">
+                                <h4>👥 Entregables:</h4>
+                                <ul>
+                                    <li>Usuario: Config + Login</li>
+                                    <li>Búsqueda + Reservas</li>
+                                    <li>APK Usuario</li>
+                                    <li>Gestión en Admin</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="phase-card">
-                    <div class="phase-header">
-                        <div class="phase-number">FASE 5</div>
-                        <div class="phase-budget">$4.5M</div>
+                <div class="phase-item">
+                    <div class="phase-content">
+                        <div class="phase-card">
+                            <div class="phase-header">
+                                <div class="phase-number">FASE 3</div>
+                                <div class="phase-budget">$4.5M</div>
+                            </div>
+                            <div class="phase-title">UI Avanzada + Mapas</div>
+                            <div class="phase-objective">Funcionalidades avanzadas + UX</div>
+                            <div class="deliverables">
+                                <h4>🎨 Entregables:</h4>
+                                <ul>
+                                    <li>Tarjetas ampliadas</li>
+                                    <li>OpenStreetMap completo</li>
+                                    <li>Filtros funcionales</li>
+                                    <li>Equipaje + Precios auto</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="phase-title">Finalización</div>
-                    <div class="phase-objective">Apps listas para producción</div>
-                    <div class="deliverables">
-                        <h5>🚀 Entregables:</h5>
-                        <ul>
-                            <li>Pruebas integradas</li>
-                            <li>3 APKs finales</li>
-                            <li>Documentación</li>
-                            <li>Reportes Admin</li>
-                        </ul>
+                </div>
+
+                <div class="phase-item">
+                    <div class="phase-content">
+                        <div class="phase-card">
+                            <div class="phase-header">
+                                <div class="phase-number">FASE 4</div>
+                                <div class="phase-budget">$4.5M</div>
+                            </div>
+                            <div class="phase-title">Pagos + Conexión</div>
+                            <div class="phase-objective">Sistema completo de pagos</div>
+                            <div class="deliverables">
+                                <h4>💳 Entregables:</h4>
+                                <ul>
+                                    <li>PayU + Efectivo</li>
+                                    <li>Código conductor-usuario</li>
+                                    <li>Notificaciones FCM</li>
+                                    <li>Calificaciones mutuas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-item">
+                    <div class="phase-content">
+                        <div class="phase-card">
+                            <div class="phase-header">
+                                <div class="phase-number">FASE 5</div>
+                                <div class="phase-budget">$4.5M</div>
+                            </div>
+                            <div class="phase-title">Finalización</div>
+                            <div class="phase-objective">Apps listas para producción</div>
+                            <div class="deliverables">
+                                <h4>🚀 Entregables:</h4>
+                                <ul>
+                                    <li>Pruebas integradas</li>
+                                    <li>3 APKs finales</li>
+                                    <li>Documentación</li>
+                                    <li>Reportes Admin</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Timeline y Criterios -->
-        <div class="timeline-section">
-            <!-- Timeline -->
-            <div class="section">
-                <h2>📅 Cronograma</h2>
+        <!-- Cronograma y Criterios -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 25px;">
+            <!-- Cronograma -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📅</span>
+                    <h2 class="card-title">Cronograma</h2>
+                </div>
                 <table class="timeline-table">
                     <thead>
                         <tr>
@@ -609,56 +813,64 @@
             </div>
 
             <!-- Criterios -->
-            <div class="section">
-                <h2>✅ Criterios</h2>
-                <div class="criteria-compact">
-                    <h4>Fase 1</h4>
-                    <ul>
-                        <li>Login funcional</li>
-                        <li>Firebase conectado</li>
-                        <li>APK instalable</li>
-                        <li>Admin aprobaciones</li>
-                    </ul>
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">✅</span>
+                    <h2 class="card-title">Criterios</h2>
                 </div>
-                <div class="criteria-compact">
-                    <h4>Fase 2</h4>
-                    <ul>
-                        <li>Usuario búsqueda</li>
-                        <li>APK Usuario</li>
-                        <li>Gestión admin</li>
-                    </ul>
-                </div>
-                <div class="criteria-compact">
-                    <h4>Fase 3</h4>
-                    <ul>
-                        <li>Tarjetas ampliadas</li>
-                        <li>Mapas integrados</li>
-                        <li>Filtros funcionales</li>
-                        <li>Precios automáticos</li>
-                    </ul>
-                </div>
-                <div class="criteria-compact">
-                    <h4>Fase 4</h4>
-                    <ul>
-                        <li>Pagos registrados</li>
-                        <li>Notificaciones FCM</li>
-                        <li>Reservas completas</li>
-                    </ul>
-                </div>
-                <div class="criteria-compact">
-                    <h4>Fase 5</h4>
-                    <ul>
-                        <li>3 APKs finales</li>
-                        <li>Docs completa</li>
-                        <li>Flujo validado</li>
-                    </ul>
+                <div class="criteria-grid">
+                    <div class="criteria-card">
+                        <h4>Fase 1</h4>
+                        <ul>
+                            <li>Login funcional</li>
+                            <li>Firebase conectado</li>
+                            <li>APK instalable</li>
+                            <li>Admin aprobaciones</li>
+                        </ul>
+                    </div>
+                    <div class="criteria-card">
+                        <h4>Fase 2</h4>
+                        <ul>
+                            <li>Usuario búsqueda</li>
+                            <li>APK Usuario</li>
+                            <li>Gestión admin</li>
+                        </ul>
+                    </div>
+                    <div class="criteria-card">
+                        <h4>Fase 3</h4>
+                        <ul>
+                            <li>Tarjetas ampliadas</li>
+                            <li>Mapas integrados</li>
+                            <li>Filtros funcionales</li>
+                            <li>Precios automáticos</li>
+                        </ul>
+                    </div>
+                    <div class="criteria-card">
+                        <h4>Fase 4</h4>
+                        <ul>
+                            <li>Pagos registrados</li>
+                            <li>Notificaciones FCM</li>
+                            <li>Reservas completas</li>
+                        </ul>
+                    </div>
+                    <div class="criteria-card">
+                        <h4>Fase 5</h4>
+                        <ul>
+                            <li>3 APKs finales</li>
+                            <li>Docs completa</li>
+                            <li>Flujo validado</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Resumen -->
-        <div class="section">
-            <h2>📋 Resumen Ejecutivo</h2>
+        <!-- Resumen Ejecutivo -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📋</span>
+                <h2 class="card-title">Resumen Ejecutivo</h2>
+            </div>
             <div class="summary-grid">
                 <div class="summary-card">
                     <h3>🎯 MVP</h3>
@@ -666,74 +878,13 @@
                     <p>App funcional</p>
                 </div>
                 <div class="summary-card">
-                    <h3>💰 Opción 2</h3>
-                    <div class="summary-value">$22.5M</div>
-                    <p>+ opción equity</p>
+                    <h3>💰 Tiempo</h3>
+                    <div class="summary-value">20 semanas</div>
+                    <p>A produccion</p>
                 </div>
                 <div class="summary-card">
                     <h3>📱 Apps</h3>
                     <div class="summary-value">3</div>
                     <p>Completas</p>
                 </div>
-                <div class="summary-card">
-                    <h3>🚀 Tiempo</h3>
-                    <div class="summary-value">20 sem</div>
-                    <p>A producción</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Características Clave -->
-        <div class="section">
-            <h2>✨ Características Clave</h2>
-            <div class="key-features">
-                <div class="feature-item">
-                    <strong>MVP Temprano</strong>
-                    App conductor funcional en 4 semanas para mostrar a inversionistas
-                </div>
-                <div class="feature-item">
-                    <strong>3 Aplicaciones</strong>
-                    Conductor, Usuario y Administrador con funcionalidades completas
-                </div>
-                <div class="feature-item">
-                    <strong>Sistema de Pagos</strong>
-                    PayU integrado + pagos en efectivo con códigos de verificación
-                </div>
-                <div class="feature-item">
-                    <strong>Gestión Admin</strong>
-                    Aprobación de conductores, gestión de usuarios y reportes
-                </div>
-                <div class="feature-item">
-                    <strong>Mapas Integrados</strong>
-                    OpenStreetMap con rutas estáticas y dinámicas
-                </div>
-                <div class="feature-item">
-                    <strong>Notificaciones</strong>
-                    Sistema completo FCM para todas las interacciones
-                </div>
-            </div>
-        </div>
-
-        <!-- Destacado Final -->
-        <div class="highlight-box">
-            <strong>🎉 Dos Opciones Disponibles:</strong> Presupuesto - $22.5M | MVP en 1 mes | 3 apps completas en 5 meses
-        </div>
-    </div>
-
-    <script>
-        // Animaciones ligeras y rápidas
-        document.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('.section, .phase-card, .pricing-card');
-            elements.forEach((el, i) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(8px)';
-                setTimeout(() => {
-                    el.style.transition = 'all 0.3s ease';
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, i * 30);
-            });
-        });
-    </script>
-</body>
-</html>
+                
